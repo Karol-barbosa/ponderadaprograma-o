@@ -280,6 +280,40 @@ Método CalcularConsumo():
 ```
 Implementação genérica para cálculo de consumo, a ser sobrescrita pelas subclasses.
 Agora, implemente as classes Carro e Moto, garantindo que ambas herdem de Veiculo e possuam métodos específicos para calcular o consumo de combustível com base na quilometragem e eficiência do veículo.
+
+``` javascript
+class Veiculo{
+    constructor(modelo, ano){
+        this.modelo = modelo;
+        this.ano = ano;
+    }
+    calcularConsumo(){
+    }   
+}
+class Carro extends Veiculo{
+    constructor(modelo, ano, quilometragem, eficiencia){
+        super(modelo, ano);
+        this.quilometragem = quilometragem;
+        this.eficiencia = eficiencia;
+    }
+    calcularConsumo(){
+        return this.quilometragem / this.eficiencia;
+    }
+}
+
+class Moto extends Veiculo{
+constructor(modelo, ano, quilometragem, eficiencia){
+    super(modelo, ano)
+    this.quilometragem = quilometragem ;
+    this.eficiencia = eficiencia;
+}
+calcularConsumo(){
+    return this.quilometragem / this.eficiencia
+}
+}
+
+
+```
 ______
 
 **9)** Você é um cientista da NASA e está ajudando no desenvolvimento de um sistema de pouso para sondas espaciais em Marte. Seu objetivo é calcular o tempo necessário para que a sonda reduza sua velocidade até um nível seguro para pouso, considerando uma velocidade inicial de entrada na atmosfera marciana e uma taxa de desaceleração constante causada pelo atrito atmosférico e retrofoguetes.
@@ -293,6 +327,24 @@ Considere a fórumla de atualização velocidade:
     velocidade = velocidadeInicial - desaceleracao * tempo
 ```
 Seu programa deve determinar quanto tempo será necessário para que a sonda atinja uma velocidade segura de pouso, sem ultrapassar os limites estabelecidos.
+
+```
+FUNÇÃO calcularTempoPouso (velocidadeInicial, desaceleracao, velocidadeLimite, velocidadeSegura, tempoMaximo):
+tempo = 0
+velocidade = velocidadeInicial
+
+ENQUANTO velocidade > velocidadeSegura e tempo < tempoMaximo FAÇA:
+velocidade = velocidade - desaceleracao
+tempo = tempo + 1
+
+SE velocidade <= velocidadeSegura ENTÃO 
+EXIBE “A sonda atingiu a velocidade segura para pousar em ” + tempo + “segundos.”
+
+SENÃO
+EXIBE "Cuidado! Tempo máximo excedido, pouso inseguro."
+FIM FUNÇÃO
+
+```
 ______
 
 **10)** Em um sistema de análise financeira, as operações de investimento de uma empresa podem ser representadas por matrizes, onde cada linha representa um tipo de investimento e cada coluna representa um período de tempo.
@@ -325,3 +377,5 @@ Escrever("Total de investimentos acumulados:")
 ImprimirMatriz(totalInvestimentos)  
 ```
 Agora, implemente a função MultiplicarMatrizesInvestimento(matrizA, matrizB), que multiplica as duas matrizes, simulando o efeito de diferentes fatores de crescimento e impacto financeiro nos investimentos ao longo do tempo.
+
+```
